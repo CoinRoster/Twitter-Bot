@@ -1,0 +1,5 @@
+#tweets the opening of CoinRoster golf contests every monday at 11:00 am
+#runs a node.js script named 'monday_m.js' and displays a messege indicating the result to 'log.txt'
+#
+# m h  dom mon dow   command
+0 11 * * 1 node /root/golftwt/monday_m.js >> /root/crontest/log.txt
