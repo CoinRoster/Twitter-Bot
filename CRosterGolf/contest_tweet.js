@@ -10,8 +10,8 @@ var T = new twit({
   timeout_ms:           60*1000
 });
 
-var category = 'fantasysports';
-var sub_category = 'golf';
+var category = "fantasysports";
+var sub_category = "golf";
 
 request.post(
     'https://www.coinroster.com/ContestReport_Lobby.api',
