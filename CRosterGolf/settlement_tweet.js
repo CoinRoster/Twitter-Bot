@@ -13,8 +13,8 @@ var T = new twit({
 });
 var contest_id, title, winner, type, payout;
 var j = 0;
-var category = 'fantasysports';
-var sub_category = 'golf';
+var category = "fantasysports";
+var sub_category = "golf";
 
 function settle(i){
     request.post(
