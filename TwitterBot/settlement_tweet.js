@@ -5,11 +5,11 @@ var twit = require('twit');
 //keys and tokens that are given after creating a twitter application
 //keys and tokens for @CRosterGolf
 var T = new twit({
-  consumer_key:         'E5eDOFhog2Dm7b3Yc75NbeSjb',                            
-  consumer_secret:      'C9K4k2erEwGTwKRlmuaqyLeCeG94ayQntJsq26cigRtTlOPEWj',
-  access_token:         '994232513626243072-UIVtqoCRuEDlgQhUMjMjbbsdz9Wq88A',
-  access_token_secret:  'FehguX0rcJjZaoXG5BTZIqBnH2voLC9bYpDnDFLP7u42F',
-  timeout_ms:            60*1000
+  consumer_key:			      'p5BvQAhbvb47ScZEpwIwrDySj',
+  consumer_secret:		    'AK6ACnJgdxraBLdiMcBywHRkXG72LvAnWhu9f2sv5zU7ouiCMB',
+  access_token:			      '1006981434148392961-cW11TFyMYK7sb0JWfm6kX0NntkGX2l',
+  access_token_secret:		'njUoYlB8wAVzIJwpyE6HNYEdsAZOL1WUIE8hlVe7gwfni',
+  timeout_ms:              60*1000
 });
 var contest_id, title, winner, type, payout;
 var j = 0;
