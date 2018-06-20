@@ -9,27 +9,31 @@ var T = new twit({
   timeout_ms:                   60*1000
 });
 
-//accounts to track or filter for
-var i,j;
+var i,j,k;
+//accounts to filter for
 var account = ["FantasyLabsGOLF","PGATOUR","GolfChannel","USGA","GolfCentral"];
+//keywords to filter for
+var keyword = ["Champ","champ","Fantasy","fantasy","Betting","betting","Open","open","guide","Guide"]; 
 var tweet;
 
 for(i = 0;i < account.length;i++){
     //gets tweets from prefered timelines
     T.get('statuses/user_timeline', { screen_name: account[i], include_rts: false, count: 4 },  function (err, data, response) { 
         for(j = 0;j < data.length;j++){
-            tweet = data[j].text;
             //filters tweets for prefered hashtag
-            if (tweet.includes("Champ") == true || tweet.includes("Fantasy") == true || tweet.includes("Betting") == true){      
-                //retweets
-                T.post('statuses/retweet/:id', { id: data[j].id_str }, function (err, data, response) {
-                    if (err){
-                        console.log('Not Retweeted!');
-                    }
-                    else{
-                        console.log('Retweeted!');
-                    }
-                });
+            tweet = data[j].text;
+            for(k = 0;k < keyword.length;k++){       
+                if (tweet.includes(keyword[k]) == true){
+                    //retweets
+                    T.post('statuses/retweet/:id', { id: data[j].id_str }, function (err, data, response) {
+                        if (err){
+                            console.log('Not Retweeted!');
+                        }
+                        else{
+                            console.log('Retweeted!');
+                        }
+                    });
+                }
             }
         }
     });
