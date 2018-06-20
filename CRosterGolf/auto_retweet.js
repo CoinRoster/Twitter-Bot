@@ -10,15 +10,17 @@ var T = new twit({
 });
 
 //accounts to track or filter for
-var account = ["PGATOUR","GolfChannel","USGA","GolfCentral"];
 var i,j;
+var account = ["FantasyLabsGOLF","PGATOUR","GolfChannel","USGA","GolfCentral"];
+var tweet;
 
 for(i = 0;i < account.length;i++){
     //gets tweets from prefered timelines
-    T.get('statuses/user_timeline', { screen_name: account[i], include_rts: false, count: 5 },  function (err, data, response) { 
+    T.get('statuses/user_timeline', { screen_name: account[i], include_rts: false, count: 4 },  function (err, data, response) { 
         for(j = 0;j < data.length;j++){
+            tweet = data[j].text;
             //filters tweets for prefered hashtag
-            if (data[j].text.includes("#USOpen") == true){      
+            if (tweet.includes("Champ") == true || tweet.includes("Fantasy") == true || tweet.includes("Betting") == true){      
                 //retweets
                 T.post('statuses/retweet/:id', { id: data[j].id_str }, function (err, data, response) {
                     if (err){
