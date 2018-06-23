@@ -18,7 +18,7 @@ var tweet;
 
 for(i = 0;i < account.length;i++){
     //gets tweets from prefered timelines
-    T.get('statuses/user_timeline', { screen_name: account[i], include_rts: false, count: 4 },  function (err, data, response) { 
+    T.get('statuses/user_timeline', { screen_name: account[i], include_rts: false, count: 3 },  function (err, data, response) { 
         for(j = 0;j < data.length;j++){
             //filters tweets for prefered hashtag
             tweet = data[j].text;
