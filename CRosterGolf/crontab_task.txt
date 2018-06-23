@@ -2,7 +2,7 @@
 #auto-follows those users that are following us every 3 days at midnight
 #retweets every 5 hours
 #
-#ex: runs a node.js script named 'golf.js' and displays a messege indicating the result to 'golfog.txt'
+#ex: runs a node.js script named 'golf.js' and displays a messege indicating the result to 'golflog.txt'
 #
 # m h  dom mon dow   command
 0 11 * * 1 node /root/contest_tweets/golf.js >> /root/crontest/golflog.txt
