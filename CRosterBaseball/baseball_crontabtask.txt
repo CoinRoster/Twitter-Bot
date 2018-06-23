@@ -1,0 +1,10 @@
+#tweets the opening of CoinRoster baseball contests daily at 11:00 am from June to November 
+#auto-follows those users that are following us every 3 days at midnight
+#retweets every 5 hours
+#
+#ex: runs a node.js script named 'baseball.js' and displays a messege indicating the result to 'baselog.txt'
+#
+# m h  dom mon dow   command
+0 11 * 6-11 * node /root/contest_tweets/baseball.js >> /root/crontest/baselog.txt
+0 0 * * */3 node /root/auto_follow/autobaseball.js >> /root/crontest/baselog.txt
+0 */5 * * * node /root/retweets/baseballrtwt.js >> /root/crontest/baselog.txt
