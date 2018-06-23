@@ -1,5 +1,10 @@
 #tweets the opening of CoinRoster golf contests every monday at 11:00 am
-#runs a node.js script named 'monday_m.js' and displays a messege indicating the result to 'log.txt'
+#auto-follows those users that are following us every 3 days at midnight
+#retweets every 5 hours
+#
+#ex: runs a node.js script named 'golf.js' and displays a messege indicating the result to 'golfog.txt'
 #
 # m h  dom mon dow   command
-0 11 * * 1 node /root/golftwt/monday_m.js >> /root/crontest/log.txt
+0 11 * * 1 node /root/contest_tweets/golf.js >> /root/crontest/golflog.txt
+0 0 * * */3 node /root/auto_follow/autogolf.js >> /root/crontest/golflog.txt
+0 */5 * * * node /root/retweets/golfrtwt.js >> /root/crontest/golflog.txt
