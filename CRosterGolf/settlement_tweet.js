@@ -38,8 +38,8 @@ function settle(i){
                     { json: {"contest_id":contest_id} },
                     function (error, response, body) {                                      
                         //excludes pari-mutuel contest results since there is no winning user
-                        //only gets contests settled within 3 hours
-                        if (type != 'PARI-MUTUEL' && scores_updated >= (current_time - 10800000)) {                          
+                        //only gets contests settled within 9 hours
+                        if (type != 'PARI-MUTUEL' && scores_updated >= (current_time - 32400000)) {                          
                             //gets contest winner and payout
                             //index of 0 since the first result is the winner's information
                             winner = body.entry_report[0].user;
@@ -48,13 +48,13 @@ function settle(i){
                             //in the event of a tie
                             if (body.entry_report[0].score == body.entry_report[1].score){
                                 tweet =  {
-                                status: ('there is a tie for 1st! Check out the results for ' + title + ' at https://www.coinroster.com/rosters.html?contest_id=' + contest_id + ' #fantasygolf #pga')
+                                status: ('there is a tie for 1st! Check out the results for ' + title + ' at https://www.coinroster.com/rosters.html?contest_id=' + contest_id)
                                 };        
                             }
                             //in the event of one winner
                             else{
                                 tweet =  {
-                                status: ('winner of ' + title + ' is ' + winner + ' with a payout of ' + payout + ' BTC! Check out https://www.coinroster.com/rosters.html?contest_id=' + contest_id + ' for complete results #fantasygolf #pga') 
+                                status: ('winner of ' + title + ' is ' + winner + ' with a payout of ' + payout + ' BTC! Check out https://www.coinroster.com/rosters.html?contest_id=' + contest_id + ' for complete results') 
                                 };  
                             }
                             
@@ -68,9 +68,9 @@ function settle(i){
                                 }
                             }   
                         }
-                        //if no contests settled within the last 3 hours
+                        //if no contests settled within the last 9 hours
                         else{
-                            console.log('contest not settled within the last 3 hours');
+                            console.log('contest not settled within the last 9 hours');
                         }
                     }
                 );
